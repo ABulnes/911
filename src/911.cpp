@@ -19,7 +19,7 @@ int v_central;
 int main() {
 	cout << "Central iniciando operaciones";Sleep(1000);
 	for(int j=0; j<3; j++){
-				cout << ".";Sleep(100);
+				cout << ".";Sleep(700);
 			}
 	Sleep(1000);
 	cout << endl;
