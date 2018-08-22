@@ -33,7 +33,7 @@ static void * atenderBomberos(void*) {
 	pthread_mutex_lock(&situacion_bomberos);
 	srand(time(NULL));
 	//Variables del proceso
-	v_procesoB = rand() % 6; // Variable de manejo del proceso
+	v_procesoB = rand() % 3; // Variable de manejo del proceso
 	v_tpb = rand() % 2; // Tipo de patrulla de bomberos
 	id_patrullaB = 1 + rand() % 10; // ID de la patrulla de bomberos
 	v_eq = rand() % 9; // Tipo de equipo
@@ -49,9 +49,9 @@ static void * atenderBomberos(void*) {
 
 	switch(v_procesoB){
 				case 0:	//Accidente de trafico
-					cout << "Situacion a enfrentar: " << situaciones[0] << endl; Sleep(1000);
+					cout << "Situacion a enfrentar: " << situaciones[v_sit] << endl; Sleep(1000);
 					cout << "Los bomberos enviaron un " << tipo_patrulla_b[v_tpb] <<endl; Sleep(1000);
-					cout << tipo_patrulla_b[v_tpb] << " "<< id_patrullaB <<" va en camino al " << situaciones[0] << endl; Sleep(3000);
+					cout << tipo_patrulla_b[v_tpb] << " "<< id_patrullaB <<" va en camino al " << situaciones[v_sit] << endl; Sleep(3000);
 					cout << "Los bomberos llegaron " << endl; Sleep(1000);
 					cout << "Equipo necesario para la situacion: " << equipo[v_eq] << endl;Sleep(1000);
 					heridosUrg();
@@ -59,9 +59,9 @@ static void * atenderBomberos(void*) {
 					cout << tipo_patrulla_b[v_tpb] << " llego a la estacion" << endl;
 				break;
 				case 1: // Derrumbes
-					cout << "Situacion a enfrentar: " << situaciones[1] << endl; Sleep(1000);
+					cout << "Situacion a enfrentar: " << situaciones[v_sit] << endl; Sleep(1000);
 					cout << "Los bomberos enviaron un " << tipo_patrulla_b[v_tpb] <<endl; Sleep(1000);
-					cout << tipo_patrulla_b[v_tpb] <<" "<< id_patrullaB << " va en camino al " << situaciones[1] << endl; Sleep(3000);
+					cout << tipo_patrulla_b[v_tpb] <<" "<< id_patrullaB << " va en camino al " << situaciones[v_sit] << endl; Sleep(3000);
 					cout << "Los bomberos llegaron " << endl; Sleep(1000);
 					cout << "Causa del derrumbe: " << c_derrumbes[v_derrum] << endl; Sleep(1000);
 					int equi;
@@ -76,9 +76,9 @@ static void * atenderBomberos(void*) {
 					cout << tipo_patrulla_b[v_tpb] << " llego a la estacion" << endl;
 				break;
 				case 2: // Incendios
-					cout << "Situacion a enfrentar: " << situaciones[2] << endl; Sleep(1000);
+					cout << "Situacion a enfrentar: " << situaciones[v_sit] << endl; Sleep(1000);
 					cout << "Los bomberos enviaron un " << tipo_patrulla_b[v_tpb] <<endl; Sleep(1000);
-					cout << tipo_patrulla_b[v_tpb] << " "<< id_patrullaB <<" va en camino al " << situaciones[0] << endl; Sleep(3000);
+					cout << tipo_patrulla_b[v_tpb] << " "<< id_patrullaB <<" va en camino al " << situaciones[v_sit] << endl; Sleep(3000);
 					cout << "Los bomberos llegaron " << endl; Sleep(1000);
 					cout << "Causa del incendio: " << c_incendios[v_inc] << endl; Sleep(1000);
 					if(v_inc == 2){

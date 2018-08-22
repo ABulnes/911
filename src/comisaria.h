@@ -30,6 +30,7 @@ public:
 		srand(time(NULL));
 		v_zona = rand() % 6;
 		id_patrulla = 1+rand() % 10;
+		cout << "Comisaria atiende situacion en  " <<zonas[v_zona] <<endl;
 		cout << "---------------------------------------------" << endl;
 		cout << "Patrulla  " << id_patrulla << " atendiendo situacion en "
 				<< zonas[v_zona] << endl;
@@ -61,11 +62,8 @@ public:
 			if (v_proceso == 1) {
 				cout << "Patrulla " << id_patrulla << " solicita refuerzos" << endl; 
 				Sleep(1000);
-				cout << "Salen refuerzos: " << rand() % 3 + 1 << " patrullas van en camino" << endl;
-				Sleep(1000);
-
 				//Operacion aleatoria de a que refuerzo llamara si bombero o ambulancia
-				if (rand() % 2+1 == 0) {
+				if (rand() % 3 == 0) {
 					cout << "Hay heridos patrulla requiere ambulancia" << endl;
 					Sleep(1000);
 					cout << "Ambulancia va en camino... " << endl;
@@ -87,7 +85,7 @@ public:
 					Sleep(1000);
 
 				} else {
-					if (rand() % 2+1 == 1) {
+					if (rand() % 3 == 1) {
 						cout << "Hay situacion critica patrulla requiere bomberos" << endl;
 						Sleep(1000);
 						cout << "Bomberos van en camino... " << endl;
@@ -102,7 +100,7 @@ public:
 						Sleep(1000);
 						cout << "Bomberos vuelven a central" << endl;
 					} else {
-						if (rand() % 2+1 == 2) {
+						if (rand() % 3 == 2) {
 							cout << "Las patrullas llegaron  a auxiliar patrulla  "<< id_patrulla << endl;
 							Sleep(500);
 							cout << "Patrullas atendiendo situacion " << endl;
@@ -115,10 +113,19 @@ public:
 							} else {
 								cout << "Las patrullas perdieron al delicuente" << endl;
 								Sleep(1000);
-								cout << "Los refuerzos vuelven a comisaria" << endl; 
+								cout << "Los refuerzos vuelven a comisaria" << endl;
 								Sleep(1000);
 							}
 
+						}else{
+							cout << "Los refuerzos llegaron a asistir a la patrulla" << endl;
+							Sleep(1000);
+							cout << "Los refuerzos solucionarion el problema" << endl;
+							Sleep(1000);
+							cout << "Patrulla " << id_patrulla << " volviendo a comisaria" << endl;
+							Sleep(4000);
+							cout << "Refuerzos volviendo a comisaria"<<endl;
+							Sleep(4000);
 						}
 					}
 				}
